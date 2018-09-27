@@ -1,0 +1,9 @@
+<h1>There are <%= @events.size %> Events</h1>
+
+Listing generated at <%= @t.strftime("%r")  %>
+
+<ul>
+  <% @events.each do |event| %>
+     <li> <%=event.name %></li>
+  <% end %>
+</ul>
