@@ -4,6 +4,8 @@ Listing generated at <%= @t.strftime("%r")  %>
 
 <ul>
   <% @events.each do |event| %>
-     <li> <%=event.name %></li>
+     <strong><li> <%=event.name %></strong>
+     in <strong><%=event.location %></strong>:
+     <%= number_to_currency(event.price) %></li>
   <% end %>
 </ul>
