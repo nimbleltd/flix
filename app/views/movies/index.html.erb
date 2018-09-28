@@ -4,6 +4,14 @@
   <% @movies.each do |movie| %>
      <strong><li> <%=movie.title %></strong>
      (<%=movie.rating %>):
-     <%= number_to_currency(movie.total_gross) %></li>
+     <%= number_to_currency(movie.total_gross) %>
+     <p>
+      <b>Released:</b> <%= movie.released_on.strftime("%m/%d/%Y") %>
+     </p>
+   </li>
+   <p>
+     <b>Description:</b> <%= movie.description %>
+   </p>
+   ======================================
   <% end %>
 </ul>

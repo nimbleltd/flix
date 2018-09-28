@@ -1,11 +1,43 @@
-<h1>There are <%= @events.size %> Events</h1>
+<h1>There are <%= pluralize(@events.size, 'Event') %> </h1>
 
 Listing generated at <%= @t.strftime("%r")  %>
 
-<ul>
+<% @events.each do |event| %>
+  <article>
+    <header>
+      <h2><%= event.name %></h2>
+    </header>
+    <p>
+      <%= event.description %>
+    </p>
+    <table>
+      <tr>
+        <th>When:</th>
+        <td><%= event.starts_at.strftime("%A, %b %d") %></td>
+      </tr>
+      <tr>
+        <th>Where:</th>
+        <td><%= event.location %></td>
+      </tr>
+      <tr>
+        <th>Price:</th>
+        <% if event.price == 0 %>
+          <td>FREE</td>
+        <% else %>
+          <td><%= number_to_currency(event.price) %></td>
+        <% end %>
+      </tr>
+    </table>
+  </article>
+  ================================
+<% end %>
+
+<!-- <ul>
   <% @events.each do |event| %>
      <strong><li> <%=event.name %></strong>
      in <strong><%=event.location %></strong>:
-     <%= number_to_currency(event.price) %></li>
+     <%= number_to_currency(event.price) %>
+     <%= %>
+   </li>
   <% end %>
-</ul>
+</ul> -->
