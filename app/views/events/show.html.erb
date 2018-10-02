@@ -1,0 +1,25 @@
+<article>
+  <header>
+    <h2><%= @event.name %></h2>
+  </header>
+  <p> 
+    <%= @event.description %> 
+  </p>
+  <h3>When</h3>
+  <p>
+    <%= @event.starts_at.strftime("%m/%d/%Y, %r") %>
+  </p>
+  <p>
+  <h3>When</h3>
+    <%= @event.location %> 
+  </p> 
+  <p>
+  <h3>Price</h3>
+    <strong><%= format_event_price(@event).upcase %></strong> 
+  </p>
+
+
+</article>
+
+
+

@@ -1,6 +1,6 @@
 module EventsHelper
 
-  def format_price(event)
+  def format_event_price(event)
     if event.free?
     # if event == 0  
       # content_tag(:strong,  "Free!".upcase)
