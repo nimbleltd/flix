@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   get "events/:id" => "events#show"
 
   get "movies" => "movies#index"
+  # get "movies/:id" => "movies#show"
+  get "movies/:id" => "movies#show"
 end

@@ -1,0 +1,26 @@
+<article>
+  <header>
+    <h2><%= @movies.title %></h2>
+  </header>
+  <p> 
+    <%= @movies.description %> 
+  </p>
+  <h3>When</h3>
+  <p>
+    <%= @movies.released_on.strftime("%m/%d/%Y, %r") %>
+  </p>
+  <p>
+  <h3>Rating</h3>
+    <%= @movies.rating %> 
+  </p> 
+  <p>
+  <h3>Total Revenue</h3>
+    <% if format_movie_price(@movies) == "Flop!"%>
+      <strong><i><%= format_movie_price(@movies).upcase%></i></strong>
+    <% else %>
+      <%= format_movie_price(@movies)%>
+    <% end %> 
+  </p>
+
+
+</article>
