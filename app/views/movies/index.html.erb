@@ -9,7 +9,7 @@
       <%= format_price(movie)%>
     <% end %>
     <p>
-      <b>Released:</b> <%= movie.released_on.strftime("%m/%d/%Y") %>
+      <b>Released:</b> <%= movie.released_on.strftime("%m/%d/%Y") %> | <%= time_ago_in_words(movie.released_on).capitalize %> ago
     </p>
    </li>
    <p>
