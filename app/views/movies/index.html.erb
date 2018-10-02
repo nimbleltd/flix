@@ -2,7 +2,7 @@
 
 <ul>
   <% @movies.each do |movie| %>
-    <strong><li> <%=movie.title %></strong>(<%=movie.rating %>):
+    <strong><li> <%=movie.title %></strong> (<%=movie.rating %>):
     <% if format_price(movie) == "Flop!"%>
       <strong><i><%= format_price(movie).upcase%></i></strong>
     <% else %>
