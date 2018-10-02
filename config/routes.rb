@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.
+  root "events#index"
   get "events" => "events#index"
-  get "events/:id" => "events#show"
+  get "events/:id" => "events#show", as: "event"
 
   get "movies" => "movies#index"
-  # get "movies/:id" => "movies#show"
-  get "movies/:id" => "movies#show"
+  get "movies/:id" => "movies#show", as: "movie"
 end

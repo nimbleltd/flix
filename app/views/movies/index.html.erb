@@ -2,11 +2,11 @@
 
 <ul>
   <% @movies.each do |movie| %>
-    <strong><li> <%=movie.title %></strong> (<%=movie.rating %>):
+    <strong><li> <%= link_to(movie.title, movie) %> </strong> (<%=movie.rating %>):
     <% if format_movie_price(movie) == "Flop!"%>
       <strong><i><%= format_movie_price(movie).upcase%></i></strong>
     <% else %>
-      <%= format_price(movie)%>
+      <%= format_movie_price(movie)%>
     <% end %>
     <p>
       <b>Released:</b> <%= movie.released_on.strftime("%m/%d/%Y") %> | <%= time_ago_in_words(movie.released_on).capitalize %> ago
