@@ -1,16 +1,19 @@
-<h1>There are <%= @movies.size %> movie results returned.</h1>
+<h1>  <%= pluralize(@movies.size, 'Movie') %> found</h1>
 
 <ul>
   <% @movies.each do |movie| %>
-     <strong><li> <%=movie.title %></strong>
-     (<%=movie.rating %>):
-     <%= number_to_currency(movie.total_gross) %>
-     <p>
+    <strong><li> <%=movie.title %></strong>(<%=movie.rating %>):
+    <% if format_price(movie) == "Flop!"%>
+      <strong><i><%= format_price(movie).upcase%></i></strong>
+    <% else %>
+      <%= format_price(movie)%>
+    <% end %>
+    <p>
       <b>Released:</b> <%= movie.released_on.strftime("%m/%d/%Y") %>
-     </p>
+    </p>
    </li>
    <p>
-     <b>Description:</b> <%= movie.description %>
+     <b>Description:</b> <%= truncate(movie.description, length:40, separator: ' ') %>
    </p>
    ======================================
   <% end %>
